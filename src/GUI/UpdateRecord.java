@@ -1,3 +1,5 @@
+package GUI;
+
 import dbhandlers.DBConn;
 import java.awt.*;
 import java.awt.event.WindowEvent;

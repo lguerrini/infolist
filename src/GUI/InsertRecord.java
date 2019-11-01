@@ -1,3 +1,5 @@
+package GUI;
+
 import dbhandlers.DBConn;
 import oggetti.Persona;
 import java.awt.*;
