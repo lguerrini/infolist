@@ -7,12 +7,12 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class DBConn {
+public class DBHandler {
     // Create a connection variable and set it to null
 
     Connection conn = null;
 
-    public DBConn() {
+    public DBHandler() {
         // Provide a try and catch exception
         try {
             // Connect to mysql library
@@ -27,7 +27,7 @@ public class DBConn {
         }
     }
 
-    public static Connection DBConnect() {
+    public static Connection getConnection() {
 
         // Provide a try and catch exception
         try {
@@ -45,7 +45,7 @@ public class DBConn {
 
     }
 
-  public  void loadrecord(DefaultTableModel model) {
+  public  void loadRecordsToModel(DefaultTableModel model) {
         String sql = "SELECT * FROM tbl_list";
 
         try {

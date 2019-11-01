@@ -1,6 +1,6 @@
 package GUI;
 
-import dbhandlers.DBConn;
+import dbhandlers.DBHandler;
 import oggetti.Persona;
 import java.awt.*;
 import java.awt.event.WindowEvent;
@@ -114,7 +114,7 @@ public class InsertRecord extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        //conn = DBConn.DBConnect();
+        //conn = DBHandler.getConnection();
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -123,7 +123,7 @@ public class InsertRecord extends javax.swing.JFrame {
         p.setFirstname(txt_fname.getText());
         p.setLastname(txt_lname.getText());
         p.setAge(Integer.parseInt(txt_age.getText()));
-        DBConn db= new DBConn();
+        DBHandler db= new DBHandler();
         
        // String sql = "INSERT INTO tbl_list(fname, lname, age) VALUES('"+fname+"','"+lname+"','"+age+"')";
        /* String sql = "INSERT INTO tbl_list(fname, lname, age) VALUES(?,?,?)"; 

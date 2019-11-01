@@ -1,6 +1,6 @@
 package GUI;
 
-import dbhandlers.DBConn;
+import dbhandlers.DBHandler;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.sql.*;
@@ -117,7 +117,7 @@ public class UpdateRecord extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        conn = DBConn.DBConnect();
+        conn = DBHandler.getConnection();
         String sql = "SELECT * FROM tbl_list WHERE ID = "+id+"";
         try {
            PStatement = conn.prepareStatement(sql);
