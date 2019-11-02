@@ -1,5 +1,6 @@
 package GUI;
 
+import Utils.Utility;
 import dbhandlers.DBHandler;
 import oggetti.Persona;
 import java.awt.*;
@@ -9,10 +10,12 @@ import javax.swing.*;
 
 public class InsertRecord extends javax.swing.JFrame {
 
+    Utility ut = new Utility();
+
     /*Connection conn = null;
     PreparedStatement stmt = null;
     ResultSet rs = null;
-*/
+     */
     public InsertRecord() {
         initComponents();
     }
@@ -119,14 +122,21 @@ public class InsertRecord extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Get text from textfields
-        Persona p= new Persona();
+        Persona p = new Persona();
         p.setFirstname(txt_fname.getText());
         p.setLastname(txt_lname.getText());
+        int age = 0;
+        if (ut.isNumeric(txt_age.getText())) {
+            p.setAge(Integer.parseInt(txt_age.getText()));
+        } else {
+            p.setAge(0);
+        }
+
         p.setAge(Integer.parseInt(txt_age.getText()));
-        DBHandler db= new DBHandler();
-        
-       // String sql = "INSERT INTO tbl_list(fname, lname, age) VALUES('"+fname+"','"+lname+"','"+age+"')";
-       /* String sql = "INSERT INTO tbl_list(fname, lname, age) VALUES(?,?,?)"; 
+        DBHandler db = new DBHandler();
+
+        // String sql = "INSERT INTO tbl_list(fname, lname, age) VALUES('"+fname+"','"+lname+"','"+age+"')";
+        /* String sql = "INSERT INTO tbl_list(fname, lname, age) VALUES(?,?,?)"; 
        try {
            // set stmt to create statement
            stmt = conn.prepareStatement(sql);
@@ -137,19 +147,19 @@ public class InsertRecord extends javax.swing.JFrame {
 
 // executeUpdate() function runs condition like InsertRecord, UpdateRecord, delete, drop etc
            // executeUpdate return 1 if true 0 if false
-       */
-          if(db.insPersona(p)){
-              // if true show information message
-              JOptionPane.showMessageDialog(null,"Success","INSERT",JOptionPane.INFORMATION_MESSAGE);
-              // Back to dashboard
-              new Dashboard().setVisible(true);
-              this.setVisible(false);
-          } else {
-              // if false show warning message
-              JOptionPane.showMessageDialog(null,"Opps?! Something went wrong","INSERT",JOptionPane.WARNING_MESSAGE);
-          }
-           
-       
+         */
+        if (db.insPersona(p)) {
+            // if true show information message
+            JOptionPane.showMessageDialog(null, "Success", "INSERT", JOptionPane.INFORMATION_MESSAGE);
+            // Back to dashboard
+            new Dashboard().setVisible(true);
+            this.setVisible(false);
+        } else {
+            // if false show warning message
+            JOptionPane.showMessageDialog(null, "Opps?! Something went wrong", "INSERT", JOptionPane.WARNING_MESSAGE);
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
