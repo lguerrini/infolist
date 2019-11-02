@@ -46,7 +46,7 @@ public class DBHandler {
     }
 
   public  void loadRecordsToModel(DefaultTableModel model) {
-        String sql = "SELECT * FROM tbl_list";
+        String sql = "SELECT * FROM tbl_list limit 0,100";
 
         try {
             ResultSet rs = conn.prepareStatement(sql).executeQuery();
