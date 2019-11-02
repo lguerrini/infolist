@@ -10,7 +10,7 @@ import javax.swing.*;
 
 public class InsertRecord extends javax.swing.JFrame {
 
-    Utility ut = new Utility();
+    //Utility ut = new Utility();
 
     /*Connection conn = null;
     PreparedStatement stmt = null;
@@ -114,6 +114,7 @@ public class InsertRecord extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -126,7 +127,7 @@ public class InsertRecord extends javax.swing.JFrame {
         p.setFirstname(txt_fname.getText());
         p.setLastname(txt_lname.getText());
         int age = 0;
-        if (ut.isNumeric(txt_age.getText())) {
+        if (Utility.isNumeric(txt_age.getText())) {
             p.setAge(Integer.parseInt(txt_age.getText()));
         } else {
             p.setAge(0);
